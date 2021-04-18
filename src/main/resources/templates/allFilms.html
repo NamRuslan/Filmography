@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All films</title>
+</head>
+<body>
+<h1>All Films</h1>
+        <table>
+        <div/>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Genre</th>
+                <th>Watched</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr th:each="film : ${films}">
+                <td th:text="${film.id}"/>
+                <td th:text="${film.title}"/>
+                <td th:text="${film.year}"/>
+                <td th:text="${film.genre}"/>
+                <td th:text="${film.watched}"/>
+                <td><a th:href="@{'/edit/' + ${film.id}}">Edit</a></td>
+                <td><a th:href="@{'/delete/' + ${film.id}}">Delete</a></td>
+            </tr>
+        </tbody>
+        </table>
+
+<h2>Add Film</h2>
+<a th:href="@{/add}">Add new film</a>
+</body>
+</html>
